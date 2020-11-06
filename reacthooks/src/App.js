@@ -10,6 +10,9 @@ import ClassMouse from './components/useEffect/ClassMouse';
 import UseEffectMouse from './components/useEffect/UseEffectMouse';
 import UseEffectMouseContainer from './components/useEffect/UseEffectMouseContaner';
 import ClassMouseContainer from './components/useEffect/ClassMouseContainer';
+import IntervalClassCounter from './components/useEffect/IntervalClassCounter';
+import IntervalHookCounter from './components/useEffect/IntervalHookCounter';
+
 function App() {
   return (
     <div className="App">
@@ -22,10 +25,13 @@ function App() {
       <UseEffectCounter />
       <ClassMouse />
       <UseEffectMouse />
+      <UseEffectMouseContainer />
+      <IntervalClassCounter />
+      <IntervalHookCounter />
 
       */}
-
-      <UseEffectMouseContainer />
+      <IntervalClassCounter />
+      <IntervalHookCounter />
     </div>
   );
 }
