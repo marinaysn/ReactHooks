@@ -1,5 +1,5 @@
 import './App.css';
-import ClassCounter from './components/useStateHooks/ClassCounter'
+import ClassCounter from './components/useStateHooks/ClassCounter';
 import HookCounter from './components/useStateHooks/HookCounter';
 import HookCounter2 from './components/useStateHooks/HookCounter2';
 import HookCounter3 from './components/useStateHooks/HookCounter3';
@@ -8,7 +8,8 @@ import ClassCounterOne from './components/useEffect/ClassCounterOne';
 import UseEffectCounter from './components/useEffect/UseEffectCounter';
 import ClassMouse from './components/useEffect/ClassMouse';
 import UseEffectMouse from './components/useEffect/UseEffectMouse';
-
+import UseEffectMouseContainer from './components/useEffect/UseEffectMouseContaner';
+import ClassMouseContainer from './components/useEffect/ClassMouseContainer';
 function App() {
   return (
     <div className="App">
@@ -20,10 +21,11 @@ function App() {
       <ClassCounterOne />
       <UseEffectCounter />
       <ClassMouse />
+      <UseEffectMouse />
 
       */}
 
-      <UseEffectMouse />
+      <UseEffectMouseContainer />
     </div>
   );
 }

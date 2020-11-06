@@ -12,9 +12,14 @@ function UseEffectMouse() {
     }
 
     useEffect(() => {
-        console.log('UseEffectisCalled')
+        console.log('UseEffect is Called')
         window.addEventListener('mousemove', logMousePosition)
 
+        return () => {
+         
+          console.log('Clean up - unmount') 
+          window.removeEventListener('mousemove', logMousePosition)
+        }
     },[]);
 
 
