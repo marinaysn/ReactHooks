@@ -6,6 +6,7 @@ function DataFetching() {
     const [posts, setPosts] = useState([]);
     const [id, setId] = useState(1);
     const [post, setPost] = useState(1);
+    const [idFromBtn, setIdFromBtn] = useState(1);
 
     useEffect(() => {
         
@@ -22,14 +23,24 @@ function DataFetching() {
         return  () => {
             console.log('Bye!');
         }
-    }, [id]);
+    }, [idFromBtn]);
 
-
+const BtnClickHandler = ()=>{
+    setIdFromBtn(id)
+}
     return (
         <div>
 
         <input type='text' value={id} 
         onChange={ e => setId(e.target.value)} />
+
+        <div>
+            <button type='button'
+            onClick={BtnClickHandler}
+            >
+                Fetch Post
+            </button>
+        </div>
             {/* <ul>
                 {
                   posts.map( p=>(
