@@ -4,13 +4,16 @@ import axios from 'axios';
 function DataFetching() {
 
     const [posts, setPosts] = useState([]);
+    const [id, setId] = useState(1);
+    const [post, setPost] = useState(1);
 
     useEffect(() => {
         
-        axios.get('https://jsonplaceholder.cypress.io/posts')
+        axios.get(`https://jsonplaceholder.cypress.io/posts/${id}`)
         .then(res =>{
             console.log(res.data)
-            setPosts(res.data)
+            // setPosts(res.data)
+            setPost(res.data)
         })
         .catch(err =>{
             console.log(err)
@@ -19,18 +22,25 @@ function DataFetching() {
         return  () => {
             console.log('Bye!');
         }
-    }, []);
+    }, [id]);
 
 
     return (
         <div>
-            <ul>
+
+        <input type='text' value={id} 
+        onChange={ e => setId(e.target.value)} />
+            {/* <ul>
                 {
                   posts.map( p=>(
                       <li key={p.id}>{p.title}</li>
                   ))  
                 }
-            </ul>
+            </ul> */}
+
+            <div key={post.id}>
+                {post.title}
+            </div>
         </div>
     )
 }
