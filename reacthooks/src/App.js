@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useContext, useEffect, useReducer } from 'react';
 
 import './App.css';
 import ClassCounter from './components/useStateHooks/ClassCounter';
@@ -19,16 +19,41 @@ import ComponentC from './components/useContext/ComponentC';
 import URCounter from './components/useReducer/URCounter';
 import URCounter2 from './components/useReducer/URCounter2';
 import URCounter3 from './components/useReducer/URCounter3'
+import ComponentAuR from './components/useReducer/ComponentAuR';
+import ComponentBuR from './components/useReducer/ComponentBuR';
+import ComponentCuR from './components/useReducer/ComponentCuR';
+
 
 export const UserContext = React.createContext();
 export const ChannelContext = React.createContext();
+export const CountContext = React.createContext();
+
+const initialState = 0;
+const reducer = (state, action) => {
+  switch (action) {
+    case 'add':
+      return state + 1
+    case 'subtract':
+      if (state <= 1) {
+        return 0
+      }
+      return state - 1
+    case 'reset':
+      return initialState
+    default:
+      return state
+  }
+}
+
 
 function App() {
 
+  const [count, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <div className="App">
-      {/* 
+    <CountContext.Provider value={{countState: count, countDispatch: dispatch}}>
+      <div className="App">
+        {/* 
 
        //useState 
       <ClassCounter />
@@ -59,10 +84,20 @@ function App() {
       //useReducer
       <URCounter />
       <URCounter2 />
+      <URCounter3 />
+
+      //useReducer + useContext
+
       */}
 
-      <URCounter3 />
-    </div>
+
+        <div>Count from App: {count}</div>
+        <ComponentAuR />
+        <ComponentBuR />
+        <ComponentCuR />
+      </div>
+    </CountContext.Provider>
+
   );
 }
 
