@@ -16,7 +16,7 @@ import IntervalClassCounter from './components/useEffect/IntervalClassCounter';
 import IntervalHookCounter from './components/useEffect/IntervalHookCounter';
 import DataFetching from './components/DataStream/DataFetching'
 import ComponentC from './components/useContext/ComponentC';
-
+import URCounter from './components/useReducer/URCounter'
 
 export const UserContext = React.createContext();
 export const ChannelContext = React.createContext();
@@ -42,13 +42,15 @@ function App() {
       <IntervalHookCounter />
       <DataFetching />
 
-      */}
-      <UserContext.Provider value='Marina'>
+<UserContext.Provider value='Marina'>
         <ChannelContext.Provider value='Youtube and Google'>
           <ComponentC />
         </ChannelContext.Provider>
       </UserContext.Provider>
+      
+      */}
 
+      <URCounter />
     </div>
   );
 }
