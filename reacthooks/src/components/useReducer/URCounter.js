@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useCallback, useMemo, useReducer } from 'react';
+import React, { useReducer } from 'react';
 
 const initialState = 0;
 const reducer = (state, action) => {
