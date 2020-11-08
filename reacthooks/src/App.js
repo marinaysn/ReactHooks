@@ -43,13 +43,12 @@ function App() {
       <DataFetching />
 
       */}
-      <UserContext.Provider value='marina'>
-      <ChannelContext.Provider value='Youtube and Google'>
-        <ComponentC />
-      </ChannelContext.Provider>
-        
+      <UserContext.Provider value='Marina'>
+        <ChannelContext.Provider value='Youtube and Google'>
+          <ComponentC />
+        </ChannelContext.Provider>
       </UserContext.Provider>
-      
+
     </div>
   );
 }
