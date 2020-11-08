@@ -17,7 +17,8 @@ import IntervalHookCounter from './components/useEffect/IntervalHookCounter';
 import DataFetching from './components/DataStream/DataFetching'
 import ComponentC from './components/useContext/ComponentC';
 import URCounter from './components/useReducer/URCounter';
-import URCounter2 from './components/useReducer/URCounter2'
+import URCounter2 from './components/useReducer/URCounter2';
+import URCounter3 from './components/useReducer/URCounter3'
 
 export const UserContext = React.createContext();
 export const ChannelContext = React.createContext();
@@ -57,10 +58,10 @@ function App() {
       
       //useReducer
       <URCounter />
-
+      <URCounter2 />
       */}
 
-      <URCounter2 />
+      <URCounter3 />
     </div>
   );
 }
