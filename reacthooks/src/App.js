@@ -1,3 +1,5 @@
+import React, { useState, useContext, useEffect, useCallback, useMemo } from 'react';
+
 import './App.css';
 import ClassCounter from './components/useStateHooks/ClassCounter';
 import HookCounter from './components/useStateHooks/HookCounter';
@@ -13,8 +15,15 @@ import ClassMouseContainer from './components/useEffect/ClassMouseContainer';
 import IntervalClassCounter from './components/useEffect/IntervalClassCounter';
 import IntervalHookCounter from './components/useEffect/IntervalHookCounter';
 import DataFetching from './components/DataStream/DataFetching'
+import ComponentC from './components/useContext/ComponentC';
+
+
+export const UserContext = React.createContext();
+export const ChannelContext = React.createContext();
 
 function App() {
+
+
   return (
     <div className="App">
       {/* <ClassCounter />
@@ -31,9 +40,16 @@ function App() {
       <IntervalHookCounter />
       <IntervalClassCounter />
       <IntervalHookCounter />
-      */}
-      
       <DataFetching />
+
+      */}
+      <UserContext.Provider value='marina'>
+      <ChannelContext.Provider value='Youtube and Google'>
+        <ComponentC />
+      </ChannelContext.Provider>
+        
+      </UserContext.Provider>
+      
     </div>
   );
 }
