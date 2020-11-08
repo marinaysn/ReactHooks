@@ -33,9 +33,9 @@ function DataFetching2() {
         setIdFromBtn(id)
     }
 
-const process = 
-<div>
-<input type='text' value={id}
+    const process =
+        <div>
+            <input type='text' value={id}
                 onChange={e => setId(e.target.value)} />
 
             <div>
@@ -51,10 +51,10 @@ const process =
                 {post.title}
             </div>
 
-</div>
+        </div>
 
 
-            
+
     return (
         <div>
 
