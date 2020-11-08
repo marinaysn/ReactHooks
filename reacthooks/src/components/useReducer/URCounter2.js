@@ -1,17 +1,28 @@
 import React, { useState, useContext, useEffect, useCallback, useMemo, useReducer } from 'react';
 
 const initialState = {
-    firstCounter:0
+    firstCounter:0,
+    secondCounter: 10
 };
 const reducer = (state, action) => {
     switch (action.type) {
         case 'add':
-            return {firstCounter: state.firstCounter + action.value}
+            return {...state, firstCounter: state.firstCounter + action.value}
         case 'subtract':
             if ((state.firstCounter - action.value) <= 1) {
-                return {firstCounter: 0}
+                return {...state, firstCounter: 0}
             }
-            return {firstCounter: state.firstCounter - action.value}
+            return {...state, firstCounter: state.firstCounter - action.value}
+
+            case 'add2':
+            return {...state, secondCounter: state.secondCounter + action.value}
+            case 'subtract2':
+            if ((state.secondCounter - action.value) <= 1) {
+                return {...state, secondCounter: 0}
+            }
+            return {...state, secondCounter: state.secondCounter - action.value}
+
+
         case 'reset':
             return initialState
         default:
@@ -27,7 +38,11 @@ function URCounter2() {
     return (
         <div>
             <div>
-                Counter: {count.firstCounter}
+                First Counter: {count.firstCounter}
+            </div>
+
+            <div>
+                Second Counter: {count.secondCounter}
             </div>
 
             <button onClick={() => dispatch({type: 'add', value: 1})}>Add</button>
@@ -37,6 +52,13 @@ function URCounter2() {
             <button onClick={() => dispatch({type: 'add', value: 5})}>Add 5</button>
 
             <button onClick={() => dispatch({type: 'subtract', value: 5})}>Subtract 5</button>
+
+        <div>
+            <button onClick={() => dispatch({type: 'add2', value: 2})}>Add (Snd) 2</button>
+
+            <button onClick={() => dispatch({type: 'subtract2', value: 2})}>Subtract  (Snd) 2</button>
+        </div>
+            
 
             <button onClick={() => dispatch({type:'reset'})}
 
