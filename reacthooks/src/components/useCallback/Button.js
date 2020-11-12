@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Button(props) {
-    console.log('Rendering Button now')
+    console.log(`Rendering Button now ${props.children}`)
     return (
         
         <div>
