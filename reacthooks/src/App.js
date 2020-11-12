@@ -1,19 +1,16 @@
 import React, { useState, useContext, useEffect, useReducer } from 'react';
 import './App.css';
 import DataFetching2 from './components/DataStream/DataFetching2';
-import DataFetchingwUseReducer from './components/DataStream/DataFetchingwUseReducer'
+import ParentComponent from './components/useCallback/ParentComponent';
+
 function App() {
 
   return (
-      <div className="App">
-       
-<DataFetching2 />
+    <div className="App">
 
-< hr />
+      <ParentComponent />
 
-<DataFetchingwUseReducer />
-
-      </div>
+    </div>
   );
 }
 
