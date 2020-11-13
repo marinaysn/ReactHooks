@@ -26,8 +26,7 @@ function ParentComponent() {
 
         else {
           setSalary(salary + num)  
-        }
-        
+        }     
     }, [])
 
 
