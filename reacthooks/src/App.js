@@ -5,17 +5,19 @@ import ClassTimer from './components/useRef/ClassTimer'
 import HookTimer from './components/useRef/HookTimer';
 import DocTitleOne from './components/CustomHooks/DocTitleOne';
 
-import DocTitleTwo from './components/CustomHooks/DocTitleTwo';
-
+import CounterOne from './components/CustomHooks/CounterOne';
+import CounterTwo from './components/CustomHooks/CounterTwo';
 function App() {
 
   return (
     <div className="App">
+      
       <div>
-        <DocTitleOne />
+        <CounterOne />
       </div>
+
       <div>
-        <DocTitleTwo />
+        <CounterTwo />
       </div>
     </div>
   );
