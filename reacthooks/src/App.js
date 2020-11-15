@@ -1,15 +1,22 @@
 import React, { useState, useContext, useEffect, useReducer } from 'react';
 import './App.css';
 import DataFetching2 from './components/DataStream/DataFetching2';
-import FocusInput from './components/useRef/FocusInput'
+import ClassTimer from './components/useRef/ClassTimer'
+import HookTimer from './components/useRef/HookTimer';
+import DocTitleOne from './components/CustomHooks/DocTitleOne';
+
+import DocTitleTwo from './components/CustomHooks/DocTitleTwo';
 
 function App() {
 
   return (
     <div className="App">
-
-      <FocusInput />
-
+      <div>
+        <DocTitleOne />
+      </div>
+      <div>
+        <DocTitleTwo />
+      </div>
     </div>
   );
 }
