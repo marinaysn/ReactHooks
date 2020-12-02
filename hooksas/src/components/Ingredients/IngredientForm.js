@@ -14,6 +14,8 @@ const IngredientForm = React.memo(props => {
     // ...
     console.log(title)
     console.log(amount)
+
+    props.onAddIngredient({title, amount});
   };
 
   return (
