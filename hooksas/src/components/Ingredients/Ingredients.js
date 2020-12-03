@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import IngredientForm from './IngredientForm';
 import IngredientList from './IngredientList'
@@ -8,9 +8,27 @@ const Ingredients = () => {
 
   const [userIngredients, setUserIngredients] = useState([]);
 
+  // useEffect(() => {
+    
+  //   fetch('https://mshooks-72096.firebaseio.com/ingredients.json').then(responce => responce.json())
+  //   .then(responceData =>{
+  //      const loadedIngredients = [];
+  //      for ( const key in responceData) {
+  //        loadedIngredients.push({
+  //          id: key,
+  //          title: responceData[key].title,
+  //          amount: responceData[key].amount
+  //        })
+  //      }
+
+  //      setUserIngredients(loadedIngredients)
+  //   })
+  // }, []);
+
   const addIngredientHandler = newItem => {
 
-    // newItem = {id: Math.random().toString(), ...newItem}
+    console.log('marka')
+    console.log(userIngredients)
 
     fetch('https://mshooks-72096.firebaseio.com/ingredients.json', {
       method: 'POST',
@@ -19,18 +37,22 @@ const Ingredients = () => {
     }).then(responce => {
       return responce.json();
     }).then(responceData => {
-      console.log('marina');
-      console.log(responceData)
+      
       setUserIngredients(prev => [...prev, { id: responceData.name, ...newItem }])
     });
 
   }
+
+  const onFilterIngredientsHandler = useCallback(filter =>{
+    setUserIngredients(filter)
+  },[])
+
   return (
     <div className="App">
       <IngredientForm onAddIngredient={addIngredientHandler} />
 
       <section>
-        <Search />
+        <Search onFilterIngredients={onFilterIngredientsHandler} />
         <IngredientList ingredients={userIngredients} onRemoveItem={() => { }} />
       </section>
     </div>
